@@ -4,4 +4,12 @@ const c = canvas.getContext('2d')
 canvas.width = 1024
 canvas.height = 576
 
-console.log('Hello world');
+c.fillRect(0, 0, canvas.width, canvas.height)
+
+class Sprite {
+    constructor() {
+        this.position = position
+    }
+}
+
+const player = new Sprite()
