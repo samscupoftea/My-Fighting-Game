@@ -15,7 +15,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "url": "file:///Users/samuelhockaday/Desktop/My%20Fighting%20Game%20/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
