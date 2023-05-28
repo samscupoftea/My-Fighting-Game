@@ -77,6 +77,9 @@ window.addEventListener('keydown', (event) => {
         case 'd':
             player.velocity.x = 1
             break
+        case 'a':
+            player.velocity.x = -1
+            break
     }
     console.log(event.key);
 
@@ -85,6 +88,9 @@ window.addEventListener('keydown', (event) => {
 window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case 'd':
+            player.velocity.x = 0
+            break
+        case 'a':
             player.velocity.x = 0
             break
     }
