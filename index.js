@@ -71,7 +71,8 @@ function animate() {
 }
 
 animate()
-
+// Here I used event listeners for the actual player input and interaction. 
+// Notice that I have one section for keydown for when the key is pressed down. 
 window.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'd':
@@ -84,7 +85,7 @@ window.addEventListener('keydown', (event) => {
     console.log(event.key);
 
 })
-
+// Here is for what happens when the key is let go off or no longer pressed. If this has not been stated, the coded action will just continue forever even after the key has been unpressed. 
 window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case 'd':
