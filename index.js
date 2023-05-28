@@ -72,31 +72,40 @@ const keys = {
     },
     w: {
         pressed: false
+    },
+    ArrowRight: {
+        pressed: false
+    },
+    ArrowLeft: {
+        pressed: false
     }
 }
 function animate() {
     window.requestAnimationFrame(animate)
     c.fillStyle = 'black'
     c.fillRect(0, 0, canvas.width, canvas.height)
+
     player.update()
     enemy.update()
+
 
     player.velocity.x = 0
 
     if (keys.a.pressed && lastKey === 'a') {
-        player.velocity.x = - 1
+        player.velocity.x = -1
     } else if (keys.d.pressed && lastKey === 'd') {
         player.velocity.x = 1
     }
+
+    enemy.update()
+    if (keys.ArrowLeft.pressed && lastKey === 'ArrowLeft') {
+        enemy.velocity.x = -1
+    } else if (keys.ArrowRight.pressed && lastKey === 'ArrowRight') {
+        enemy.velocity.x = 1
+    }
 }
 
-enemy.velocity.x = 0
 
-if (keys.ArrowRight.pressed && lastKey === 'ArrowRight') {
-    enemy.velocity.x = - 1
-} else if (keys.ArrowLeft.pressed && lastKey === 'ArrowLeft') {
-    enemy.velocity.x = 1
-}
 
 animate()
 // Here I used event listeners for the actual player input and interaction. 
