@@ -23,6 +23,8 @@ class Sprite {
     update() {
         this.draw()
 
+        this.position.x += this.velocity.x
+
         this.position.y += this.velocity.y
 
         if (this.position.y + this.height + this.velocity.y >= canvas.height) {
@@ -71,6 +73,21 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
-    console.log(event);
+    switch (event.key) {
+        case 'd':
+            player.velocity.x = 1
+            break
+    }
+    console.log(event.key);
+
+})
+
+window.addEventListener('keyup', (event) => {
+    switch (event.key) {
+        case 'd':
+            player.velocity.x = 0
+            break
+    }
+    console.log(event.key);
 
 })
