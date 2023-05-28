@@ -57,6 +57,7 @@ const enemy = new Sprite({
         y: 0
     }
 })
+let lastKey
 
 
 console.log(player)
@@ -79,9 +80,9 @@ function animate() {
 
     player.velocity.x = 0
 
-    if (keys.a.pressed) {
+    if (keys.a.pressed && lastKey === 'a') {
         player.velocity.x = - 1
-    } else if (keys.d.pressed) {
+    } else if (keys.d.pressed && lastKey === 'd') {
         player.velocity.x = 1
 
 
@@ -109,9 +110,11 @@ window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case 'd':
             keys.d.pressed = false
+            lastKey = 'd'
             break
         case 'a':
             keys.a.pressed = false
+            lastKey = 'a'
             break
     }
     console.log(event.key);
