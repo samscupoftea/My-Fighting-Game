@@ -97,6 +97,7 @@ animate()
 // Here I used event listeners for the actual player input and interaction. 
 // Notice that I have one section for keydown for when the key is pressed down. 
 window.addEventListener('keydown', (event) => {
+    console.log(event.key)
     switch (event.key) {
         case 'd':
             keys.d.pressed = true
@@ -109,6 +110,20 @@ window.addEventListener('keydown', (event) => {
         case 'w':
             player.velocity.y = -10
             break
+
+        case 'ArrowRight':
+            keys.ArrowRight.pressed = true
+            enemy.lastKey = 'ArrowRight'
+
+            break
+        case 'ArrowLeft':
+            keys.ArrowLeft.pressed = true
+            enemy.lastKey = 'ArrowLeft'
+            break
+        case 'ArrowUp':
+            enemy.velocity.y = -10
+            break
+
 
     }
     console.log(event.key);
