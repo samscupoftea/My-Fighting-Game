@@ -90,17 +90,16 @@ function animate() {
 
 
     player.velocity.x = 0
-
+    // player movement
     if (keys.a.pressed && lastKey === 'a') {
         player.velocity.x = -1
     } else if (keys.d.pressed && lastKey === 'd') {
         player.velocity.x = 1
     }
-
-    enemy.update()
-    if (keys.ArrowLeft.pressed && lastKey === 'ArrowLeft') {
+    // enemy movement 
+    if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
         enemy.velocity.x = -1
-    } else if (keys.ArrowRight.pressed && lastKey === 'ArrowRight') {
+    } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
         enemy.velocity.x = 1
     }
 }
@@ -155,7 +154,8 @@ window.addEventListener('keyup', (event) => {
         case 'w':
             keys.a.pressed = false
             break
-
+    }
+    switch (event.key) {
         case 'ArrowRight':
             keys.ArrowRight.pressed = false
             break
@@ -165,8 +165,9 @@ window.addEventListener('keyup', (event) => {
         case 'ArrowUp':
             keys.a.pressed = false
             break
-
     }
+
+
     console.log(event.key);
 
 })
