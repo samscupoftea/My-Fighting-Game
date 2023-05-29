@@ -57,7 +57,7 @@ const enemy = new Sprite({
         y: 0
     }
 })
-let lastKey
+
 
 
 console.log(player)
@@ -92,9 +92,9 @@ function animate() {
     player.velocity.x = 0
     enemy.velocity.x = 0
     // player movement
-    if (keys.a.pressed && lastKey === 'a') {
+    if (keys.a.pressed && player.lastKey === 'a') {
         player.velocity.x = -1
-    } else if (keys.d.pressed && lastKey === 'd') {
+    } else if (keys.d.pressed && player.lastKey === 'd') {
         player.velocity.x = 1
     }
     // enemy movement 
