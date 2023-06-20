@@ -1,128 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Korean Game - Attacker vs Defender</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <h1>Korean Game - Attacker vs Defender</h1>
-  <div id="game">
-    <h2 id="role"></h2>
-    <button id="startBtn">Start Game</button>
-    <p id="message"></p>
-    <p id="directions"></p>
-    <button class="directionBtn">Up</button>
-    <button class="directionBtn">Down</button>
-    <button class="directionBtn">Left</button>
-    <button class="directionBtn">Right</button>
-  </div>
-
-  <script>
-    // Game variables
-    let attacker;
-    let defender;
-    let round = 1;
-    let attackerScore = 0;
-    let defenderScore = 0;
-    let currentPlayer = "Attacker";
-
-    // Game elements
-    const roleElement = document.getElementById('role');
-    const startButton = document.getElementById('startBtn');
-    const messageElement = document.getElementById('message');
-    const directionsElement = document.getElementById('directions');
-    const directionButtons = document.getElementsByClassName('directionBtn');
-
-    // Display the Attacker and Defender roles
-    const displayRoles = () => {
-      roleElement.textContent = `Round ${round}: Attacker (${attacker}) vs Defender (${defender})`;
-    };
-
-    // Event handler for direction selection
-    const directionClickHandler = (event) => {
-      const direction = event.target.textContent;
-      const currentPlayerDirection = direction;
-
-      if (currentPlayer === "Attacker") {
-        // Attacker's turn
-        attacker = currentPlayerDirection;
-        directionsElement.textContent = `Defender, point your head in a direction (up, down, left, or right).`;
-        currentPlayer = "Defender";
-      } else {
-        // Defender's turn
-        defender = currentPlayerDirection;
-
-        if (attacker !== defender) {
-          // Defender wins the round
-          defenderScore++;
-          messageElement.textContent = 'Defender wins the round!';
-        } else {
-          // Attacker wins the round
-          attackerScore++;
-          messageElement.textContent = 'Attacker wins the round and hits the Defender!';
-        }
-        round++;
-
-        // Switch roles if the Defender wins or Attacker reaches 3 points
-        if (defender !== attacker || attackerScore === 3) {
-          const temp = attacker;
-          attacker = defender;
-          defender = temp;
-        }
-
-        displayRoles();
-
-        // Check if the game is over
-        if (attackerScore === 3) {
-          messageElement.textContent = 'Attacker wins the game!';
-          disableDirectionButtons();
-        } else if (defenderScore === 3) {
-          messageElement.textContent = 'Defender wins the game!';
-          disableDirectionButtons();
-        }
-
-        // Attacker's turn
-        directionsElement.textContent = `Attacker, point your hand to a direction (up, down, left, or right).`;
-        currentPlayer = "Attacker";
-      }
-    };
-
-    // Enable direction buttons
-    const enableDirectionButtons = () => {
-      for (let i = 0; i < directionButtons.length; i++) {
-        directionButtons[i].addEventListener('click', directionClickHandler);
-      }
-    };
-
-    // Disable direction buttons
-    const disableDirectionButtons = () => {
-      for (let i = 0; i < directionButtons.length; i++) {
-        directionButtons[i].removeEventListener('click', directionClickHandler);
-      }
-    };
-
-    // Start the game
-    const startGame = () => {
-      round = 1;
-      attackerScore = 0;
-      defenderScore = 0;
-      currentPlayer = "Attacker";
-
-      displayRoles();
-      messageElement.textContent = '';
-      directionsElement.textContent = `Attacker, point your hand to a direction (up, down, left, or right).`;
-      enableDirectionButtons();
-    };
-
-    // Event listener for the start button
-    startButton.addEventListener('click', () => {
-      startGame();
-    });
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fighting Game </title>
+    <meta name="description" content="WEBSITE" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1> SAM'S GAME PROJECT </h1>
+    <h2 id="gameStart"> TWO PLAYER FIGHTING GAME  </h2>
+    <button id="start-btn" onclick="increment()">INCREMENT</button>
+<canvas></canvas>
+<script src="index.js"></script>
+    </body>
 </html>
+
