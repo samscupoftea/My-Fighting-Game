@@ -148,6 +148,9 @@ window.addEventListener('keydown', (event) => {
         case 'w':
             player.velocity.y = -10
             break
+        case ' ':
+            player.attack()
+            break
 
         case 'ArrowRight':
             keys.ArrowRight.pressed = true
