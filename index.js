@@ -28,11 +28,14 @@ class Sprite {
         c.fillStyle = this.color, this.width;
         c.fillRect(this.position.x, this.position.y, 50, this.height)
 
-        // attack box 
-        c.fillStyle = 'blue';
-        c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-    }
 
+
+        // attack box 
+        if (this.isAttacking) {
+            c.fillStyle = 'blue';
+            c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
+        }
+    }
     update() {
         this.draw()
 
