@@ -12,6 +12,7 @@ class Sprite {
     constructor({ position, velocity, color = 'red' }) {
         this.position = position
         this.velocity = velocity
+        this.width = 50
         this.height = 150
         this.lastKey
         this.attackBox = {
@@ -23,7 +24,7 @@ class Sprite {
     }
 
     draw() {
-        c.fillStyle = this.color;
+        c.fillStyle = this.color, this.width;
         c.fillRect(this.position.x, this.position.y, 50, this.height)
 
         // attack box 
@@ -118,7 +119,7 @@ function animate() {
 
 
     // detect player collision. This is for attacks. 
-    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x) {
+    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x && player.attackBox.position.x <= enemy.position.x + enemy.width) {
         console.log('go');
     }
 }
