@@ -115,13 +115,13 @@ function animate() {
     } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
         enemy.velocity.x = 5
     }
-}
 
-// detect player collision. This is for attacks. 
-if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x) {
-    console.log('go');
-}
 
+    // detect player collision. This is for attacks. 
+    if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x) {
+        console.log('go');
+    }
+}
 animate()
 // Here I used event listeners for the actual player input and interaction. 
 // Notice that I have one section for keydown for when the key is pressed down. 
