@@ -24,45 +24,45 @@ class Sprite {
             width: 100,
             height: 50
 
-
         }
         this.color = color
         this.isAttacking
     }
 
     draw() {
-        c.fillStyle = this.color, this.width;
-        c.fillRect(this.position.x, this.position.y, 50, this.height)
+        c.fillStyle = this.color;
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
 
 
 
         // attack box 
-        if (this.isAttacking) {
-            c.fillStyle = 'blue';
-            c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-        }
+        // if (this.Attacking)
+        // if (this.isAttacking) {
+        c.fillStyle = 'blue';
+        c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
     }
-    update() {
-        this.draw()
-        this.attackBox.position.x = this.position.x - this.attackBox.offset.x
-        this.attackBox.position.y = this.position.y
+}
+update() {
+    this.draw()
+    this.attackBox.position.x = this.position.x - this.attackBox.offset.x
+    this.attackBox.position.y = this.position.y
 
-        this.position.x += this.velocity.x
+    this.position.x += this.velocity.x
 
-        this.position.y += this.velocity.y
+    this.position.y += this.velocity.y
 
-        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
-            this.velocity.y = 0
-        } else
-            this.velocity.y += gravity
+    if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+        this.velocity.y = 0
+    } else
+        this.velocity.y += gravity
 
-    }
-    attack() {
-        this.isAttacking = true
-        setTimeout(() => {
-            this.isAttacking = false
-        }, 100)
-    }
+}
+attack() {
+    this.isAttacking = true
+    setTimeout(() => {
+        this.isAttacking = false
+    }, 100)
+}
 }
 
 const player = new Sprite({
