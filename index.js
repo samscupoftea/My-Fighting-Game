@@ -117,7 +117,10 @@ function animate() {
     }
 }
 
-
+// detect player collision. This is for attacks. 
+if (player.attackBox.position.x + player.attackBox.width >= enemy.position.x) {
+    console.log('go');
+}
 
 animate()
 // Here I used event listeners for the actual player input and interaction. 
