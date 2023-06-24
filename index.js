@@ -21,6 +21,7 @@ class Sprite {
             height: 50
         }
         this.color = color
+        this.isAttacking
     }
 
     draw() {
@@ -44,6 +45,12 @@ class Sprite {
         } else
             this.velocity.y += gravity
 
+    }
+    attack() {
+        this.isAttacking = true
+        setTimeout(() => {
+            this.isAttacking = false
+        }, 100)
     }
 }
 
