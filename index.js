@@ -9,7 +9,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.2
 
 class Sprite {
-    constructor({ position, velocity, color = 'red' }) {
+    constructor({ position, velocity, offset, color = 'red' }) {
         this.position = position
         this.velocity = velocity
         this.width = 50
@@ -41,30 +41,31 @@ class Sprite {
         c.fillStyle = 'blue';
         c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
     }
+
+    update() {
+        this.draw()
+
+        this.attackBox.position.x = this.position.x, + this.attackBox.offset.x
+        this.attackBox.position.y = this.position.y
+
+        this.position.x += this.velocity.x
+
+        this.position.y += this.velocity.y
+
+        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+            this.velocity.y = 0
+        } else
+            this.velocity.y += gravity
+    }
+
+    attack() {
+        this.isAttacking = true
+        setTimeout(() => {
+            this.isAttacking = false
+        }, 100)
+    }
+
 }
-update() {
-    this.draw()
-    this.attackBox.position.x = this.position.x - this.attackBox.offset.x
-    this.attackBox.position.y = this.position.y
-
-    this.position.x += this.velocity.x
-
-    this.position.y += this.velocity.y
-
-    if (this.position.y + this.height + this.velocity.y >= canvas.height) {
-        this.velocity.y = 0
-    } else
-        this.velocity.y += gravity
-
-}
-attack() {
-    this.isAttacking = true
-    setTimeout(() => {
-        this.isAttacking = false
-    }, 100)
-}
-}
-
 const player = new Sprite({
     position: {
         x: 0,
@@ -73,6 +74,10 @@ const player = new Sprite({
     velocity: {
         x: 0,
         y: 10
+    },
+    offset: {
+        x: 0,
+        y: 0
     }
 })
 
