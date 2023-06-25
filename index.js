@@ -45,7 +45,7 @@ class Sprite {
     update() {
         this.draw()
 
-        this.attackBox.position.x = this.position.x, + this.attackBox.offset.x
+        this.attackBox.position.x = this.position.x + this.attackBox.offset.x
         this.attackBox.position.y = this.position.y
 
         this.position.x += this.velocity.x
@@ -123,7 +123,7 @@ const keys = {
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
     return (rectangle1.attackBox.position.x + rectangle1.attackBox.width >= enemy.position.x && rectangle1.attackBox.position.x <= enemy.position.x + enemy.width &&
-        rectangle2.attackBox.position.y + rectangle2.attackBox.height >= enemy.position.y && rectangle2.attackBox.position.y <= enemy.position.y + enemy.height)
+        rectangle2.attackBox.position.y + rectangle2.attackBox.height >= enemy.position.y && rectangle2.attackBox.position.y <= enemy.position.y + enemy.height);
 }
 function animate() {
     window.requestAnimationFrame(animate)
