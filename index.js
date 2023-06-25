@@ -120,6 +120,11 @@ const keys = {
         pressed: false
     }
 }
+
+function rectangularCollision({ rectangle1, rectangle2 }) {
+    return (rectangle1.attackBox.position.x + rectangle1.attackBox.width >= enemy.position.x && rectangle1.attackBox.position.x <= enemy.position.x + enemy.width &&
+        rectangle2.attackBox.position.y + rectangle2.attackBox.height >= enemy.position.y && rectangle2.attackBox.position.y <= enemy.position.y + enemy.height)
+}
 function animate() {
     window.requestAnimationFrame(animate)
     c.fillStyle = 'black'
@@ -151,6 +156,7 @@ function animate() {
         console.log('go');
     }
 }
+
 animate()
 // Here I used event listeners for the actual player input and interaction. 
 // Notice that I have one section for keydown for when the key is pressed down. 
