@@ -37,9 +37,10 @@ class Sprite {
 
         // attack box 
         // if (this.Attacking)
-        // if (this.isAttacking) {
-        c.fillStyle = 'blue';
-        c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
+        if (this.isAttacking) {
+            c.fillStyle = 'blue';
+            c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
+        }
     }
 
     update() {
